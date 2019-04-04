@@ -1,0 +1,21 @@
+.mapSelect ul {
+	list-style: none;
+}
+
+.modal-lg { max-width: 80% !important; } 
+
+.datepicker {
+	z-index:1152 !important; 
+} 
+.timepicker {
+	z-index:1152 !important; 
+} 
+
+#exampleModal1 {
+	z-index:1162 !important;
+}
+
+.modal-sm {
+	max-width: 20% !important;
+}
+

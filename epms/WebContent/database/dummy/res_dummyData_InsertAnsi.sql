@@ -1,0 +1,1 @@
+insert into reservation values(r_seq.nextval, '1', '1', '1', '1', '1', to_date('19991221121212', 'YYYY-MM-DD hh24:mi:ss'), to_date('19991221121212','YYYY-MM-DD hh24:mi:ss'), to_date('19991221121212', 'YYYY-MM-DD hh24:mi:ss'), to_date('19991221121212','YYYY-MM-DD hh24:mi:ss'), to_date('19991221121212', 'YYYY-MM-DD hh24:mi:ss'), '1', '1');

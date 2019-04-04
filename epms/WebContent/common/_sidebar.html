@@ -1,0 +1,167 @@
+﻿<aside class="mdc-persistent-drawer mdc-persistent-drawer--open">
+      <nav class="mdc-persistent-drawer__drawer">
+        <div class="mdc-persistent-drawer__toolbar-spacer" style="background-color: #a9ceff;">
+          <a href="./user_saveView.do?where=main" class="brand-logo">
+						<img src="./img/common/main.png" style="width:220px; right:10px;" alt="logo">
+					</a>
+        </div>
+        <div class="mdc-list-group" style="height: 1000px !important; background-color: #a9ceff;">
+          <nav class="mdc-list mdc-drawer-menu" style="max-height: 100% !important; overflow-y: scroll; -ms-overflow-style: none;">
+          	<script>
+          		$(document).ready(function () {
+          			getSession();
+          		});
+          	</script>
+         	<div class="mdc-list-item mdc-drawer-item login" align="center">
+         		<div class="mdc-card" align="center" style="background-color: #d6e7ff;">
+         			<section class="mdc-card__primary">
+         				<h1 class="mdc-card__title mdc-card__title--large">Login</h1>
+         			</section>
+         			<input type="text" class="form-control" style="width:80%;" size="5" name="userid" id="userid" placeholder="Input ID"><br>
+         			<input type="password" class="form-control" style="width:80%;" size="5" name="userpw" id="userpw" placeholder="Input PW">
+         			<br>
+         			<div style="display:inline-block;">
+         				<a href="./user_saveView.do?where=find">ID/PW 찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="checkbox" id="admin" name="admin">&nbsp;<font style="font-size: 8pt;">관리자 로그인</font></input>
+					</div>
+         			<div class="mdc-card__primary">
+         			<input type="button" class="btn btn-outline-success" style="width:40%;" onclick="login();" value="Login">&nbsp;<input type="button" style="width:40%;" onclick="location.href='./user_saveView.do'" class="btn btn-outline-danger" value="SignUp">
+         			<br><br>
+         			<div>
+					<button class="facebook-button" style="background-color: #d6e7ff;" onclick="facebookLogin();"><img src="./img/common/facebook.png"></button>
+					<div id="naver_id_login" style="display:inline-block;"></div>
+					<button class="kakao-button" onclick ="kakaoLogin();" style="display:inline-block; background-color: #d6e7ff;"><img src="./img/common/kakaolink_btn_small.png" width="40px"></button>
+					</div>
+         			</div>
+         			<script type="text/javascript">
+	         			var naver_id_login = new naver_id_login("qtW7s1oTsdosqfqje4Qb", "http://52.78.140.117:8081/login/loginCallback.jsp");
+	         			var state = naver_id_login.getUniqState();
+	         			naver_id_login.setButton("green", 0 ,0);
+	         			naver_id_login.setDomain("http://52.78.140.117:8081");
+	         			naver_id_login.setState(state);
+	         			naver_id_login.setPopup();
+	         			naver_id_login.init_naver_id_login();
+         			</script>
+         			    <iframe width='0' height='0' name='test' id='test' frameborder='1' scrolling='yes' align='left' style="visibility:hidden;display:none"></iframe>
+         			<br>
+         		</div>
+         		<br>
+         	</div>
+         	<div class="mdc-list-item mdc-drawer-item logout" align="center">
+         		<div class="mdc-card" align="center" style="background-color: #d6e7ff;">
+         			<section class="mdc-card__primary">
+         				<h1 class="mdc-card__title mdc-card__title--large">Welcome</h1>
+         			</section>
+         			<img src="./img/common/face1.jpg" height="80">
+         			<p><br>
+         			I D : <span id="side_userID"></span><br>
+         			Point : <span id="side_point"></span><p>
+         			<input type="button" class="btn btn-outline-danger" style="width:40%;" onclick="logout();" value="Logout">
+         		</div>
+         		<br>
+         	</div>
+         	<div class="mdc-list-item mdc-drawer-item admin" align="center">
+         		<div class="mdc-card" align="center" style="background-color: #d6e7ff;">
+         			<section class="mdc-card__primary">
+         				<h1 class="mdc-card__title mdc-card__title--large">관리자 전용 계정</h1>
+         			</section>
+         			<input type="button" class="btn btn-outline-danger" style="width:40%;" onclick="logout();" value="Logout">
+         			<br>
+         		</div>
+         		<br>
+         	</div>
+            <div class="mdc-list-item mdc-drawer-item">
+              <a class="mdc-drawer-link" href="./user_saveView.do?where=main">
+                <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">desktop_mac</i>
+                Main
+              </a>
+            </div>
+            <div class="mdc-list-item mdc-drawer-item loginOnly" style="display:none;" href="#" data-toggle="expansionPanel" target-panel="ui-sub-menu1">
+              <a class="mdc-drawer-link" href="#">
+                <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">track_changes</i>
+                My Info
+                <i class="mdc-drawer-arrow material-icons">arrow_drop_down</i>
+              </a>
+              <div class="mdc-expansion-panel" id="ui-sub-menu1">
+                <nav class="mdc-list mdc-drawer-submenu">
+                  <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="./myinfo.do?type=guest">
+                      	나의 예약신청내역
+                    </a>
+                  </div>
+                  <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="./myinfo.do?type=host">
+                     	나의 대여 내역
+                    </a>
+                  </div>
+                  <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="./myinfo.do?type=past">
+                     	완료 내역
+                    </a>
+                  </div>
+                </nav>
+              </div>
+            </div>
+            <div class="mdc-list-item mdc-drawer-item" href="#" data-toggle="expansionPanel" target-panel="ui-sub-menu">
+              <a class="mdc-drawer-link" href="#">
+                <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">dashboard</i>
+                Board
+                <i class="mdc-drawer-arrow material-icons">arrow_drop_down</i>
+              </a>
+              <div class="mdc-expansion-panel" id="ui-sub-menu">
+                <nav class="mdc-list mdc-drawer-submenu">
+                  <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="./notification_list.do">
+                      News
+                    </a>
+                  </div>
+                  <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="./freeboard_list.do">
+                      Free Board
+                    </a>
+                  </div>
+                </nav>
+              </div>
+            </div>
+            <div class="mdc-list-item mdc-drawer-item">
+              <a class="mdc-drawer-link" href="./reservation_searchboard.do">
+                <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">grid_on</i>
+                Reservation
+              </a>
+            </div>
+            <div class="mdc-list-item mdc-drawer-item">
+              <a class="mdc-drawer-link" href="./FAQList.do">
+                <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">pie_chart_outlined</i>
+                FAQ
+              </a>
+            </div>
+            <div class="mdc-list-item mdc-drawer-item adminOnly" style="display:none;" href="#" data-toggle="expansionPanel" target-panel="sample-page-submenu">
+              <a class="mdc-drawer-link" href="#">
+                <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">pages</i>
+               	 관리자 페이지
+                <i class="mdc-drawer-arrow material-icons">arrow_drop_down</i>
+              </a>
+              <div class="mdc-expansion-panel" id="sample-page-submenu">
+                <nav class="mdc-list mdc-drawer-submenu">
+                  <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="./accountList.do">
+                      	회원관리
+                    </a>
+                  </div>
+                  <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="./Parking.do">
+                        Parking Area
+                    </a>
+                  </div>
+                  <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="./Reservation.do">
+                                          전체 예약내역
+                    </a>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </nav>
+    </aside>

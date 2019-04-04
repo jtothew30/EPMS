@@ -1,0 +1,246 @@
+drop table account;
+create table account(
+	ac_id varchar2(20) not null,
+	ac_pw varchar2(20) not null,
+	ac_name varchar2(15) not null,
+	ac_phone varchar2(20) not null,
+	ac_addr1 varchar2(100) not null,
+	ac_addr2 varchar2(100) not null,
+	ac_email varchar2(30) not null,
+	ac_date date not null,
+	ac_type varchar2(10) null,
+	ac_point number() default 0,
+	ac_area varchar2(100) null,
+	primary key(ac_id)
+);
+commit;
+
+
+
+
+
+drop table admin;
+create table admin(
+	ad_id varchar2(20) not null,
+	ad_pw varchar2(20) not null,
+	primary key(ad_id)
+);
+commit;
+
+
+
+
+
+
+
+drop table login;
+create table login(
+	lg_id varchar2(20).
+	lg_name varchar2(20),
+	primary key(lg_id)
+);
+commit;
+
+
+
+
+
+
+drop sequence  mss_seq;
+create sequence mss_seq
+ start with 1
+ increment by 1;
+commit;
+
+drop table messenger;
+create table messenger(
+	mss_no number(7) not null, 
+	mss_receiver varchar2(20) not null,
+	mss_sender varchar2(20) not null,
+	mss_content varchar2(40) null,
+	mss_date date not null,
+	primary key(mss_no)
+);
+commit;
+
+
+
+
+
+
+drop sequence  nofi_seq;
+create sequence nofi_seq
+ start with 1
+ increment by 1;
+commit;
+
+drop table board_nofi;
+create table board_nofi(
+	nofi_no number(7) not null,
+	nofi_id varchar2(20) not null,
+	nofi_title varchar2(20) not null,
+	nofi_content varchar2(100) not null,
+	nofi_date date not null,
+	primary key(nofi_no)
+);
+commit;
+
+
+
+
+
+
+drop sequence  fr_seq;
+create sequence fr_seq
+ start with 1
+ increment by 1;
+commit;
+
+drop table board_fr;
+create table board_fr(
+	fr_no number(7) not null,
+	fr_id varchar2(20) not null,
+	fr_name varchar2(20) not null,
+	fr_title varchar2(20) not null,
+	fr_content varchar2(100) not null,
+	fr_count number(7) default 0,
+	fr_date date not null,
+	primary key(fr_no)
+);
+commit;
+
+
+
+drop sequence  fr_reply_seq;
+create sequence fr_reply_seq
+ start with 1
+ increment by 1;
+commit;
+
+drop table reply_fr;
+create table reply_fr(
+	rfr_no number(7) not null,
+	rfr_id varchar2(20) not null,
+	rfr_content varchar2(100) not null,
+	rfr_date date not null,
+	primary key(rfr_no)
+);
+commit;
+
+
+
+
+
+drop sequence  faq_seq;
+create sequence faq_seq
+ start with 1
+ increment by 1;
+commit;
+
+drop table board_faq;
+create table board_faq(
+	faq_no number(7) not null,
+	faq_id varchar2(20) not null,
+	faq_name varchar2(20) not null,
+	faq_title varchar2(20) not null,
+	faq_content varchar2(100) not null,
+	faq_count number(7) default 0,
+	faq_date date not null,
+	primary key(faq_no)
+);
+commit;
+
+
+drop sequence  faq_reply_seq;
+create sequence faq_reply_seq
+ start with 1
+ increment by 1;
+commit;
+
+drop table reply_faq;
+create table reply_faq(
+	rfaq_no number(7) not null,
+	rfaq_id varchar2(20) not null,
+	rfaq_content varchar2(100) not null,
+	rfaq_date date not null,
+	primary key(rfaq_no)
+);
+commit;
+
+
+
+
+
+
+drop sequence  oto_seq;
+create sequence oto_seq
+ start with 1
+ increment by 1;
+commit;
+
+drop table faq_oto;
+create table faq_oto(
+	oto_no number(7) not null,
+	oto_id varchar2(20) not null,
+	oto_content varchar2(40) not null,
+	oto_date date not null,
+	primary key(oto_no)
+);
+commit;
+
+
+
+drop sequence  oto_reply_seq;
+create sequence oto_reply_seq
+ start with 1
+ increment by 1;
+commit;
+
+drop table reply_oto;
+create table reply_oto(
+	roto_no number(7) not null,
+	roto_id varchar2(20) not null,
+	roto_content varchar2(40) not null,
+	roto_date date not null,
+	primary key(roto_no)
+);
+commit;
+
+
+
+
+
+
+drop sequence  rt_seq;
+create sequence rt_seq
+ start with 1
+ increment by 1;
+commit;
+
+drop table rent;
+create table rent(
+	rt_no number(7) not null,
+	rt_guest varchar2(20) not null,
+	rt_host varchar2(20) not null,
+	rt_area varchar2(100) not null,
+	rt_from date not null,
+	rt_to date not null,
+	rt_sdate date not null,
+	rt_edate date null,
+	primary key(rt_no)
+);
+commit;
+
+
+
+
+
+alter table login add constraint login_id_fk
+foreign key(lg_id) references  account(ac_id) on delete cascade;
+commit ;  
+
+
+
+	
+
+

@@ -1,0 +1,72 @@
+create sequence pa_seq
+ start with 1
+ increment by 1;
+
+drop table parking_area_personal;
+drop table parking_area;
+create table parking_area (
+	pa_no number not null,
+	pa_si varchar2(20) ,
+	pa_gu varchar2(20) ,
+	pa_address varchar2(100) not null,
+	pa_lat number not null,
+	pa_lon number not null,
+	primary key(pa_address)	
+);
+
+create table parking_area_personal (
+	pap_address varchar2(100) not null,
+	pap_num varchar2(100) not null
+);
+
+alter table parking_area_personal add constraint pap_fk
+foreign key(pap_address) references parking_area(pa_address) on delete cascade;
+commit;
+
+
+=================================================================================================
+
+insert into parking_area values(pa_seq.nextval, '서울', '강남', '서울특별시 강남구 대치4동 선릉로64길 32', 37.498327, 127.055008);
+insert into parking_area values(pa_seq.nextval, '서울', '강남', '서울특별시 강남구 대치4동 921-6', 37.499477, 127.052006);
+insert into parking_area values(pa_seq.nextval, '서울', '강남', '서울특별시 강남구 대치4동 1011-84', 37.497213, 127.054561);
+insert into parking_area values(pa_seq.nextval, '서울', '강남', '서울특별시 강남구 논현2동 논현로126길', 37.513086, 127.033032);
+insert into parking_area values(pa_seq.nextval, '서울', '강남', '서울특별시 강남구 논현2동 학동로34길', 37.513265, 127.033751);
+insert into parking_area values(pa_seq.nextval, '서울', '강남', '서울특별시 강남구 논현2동 언주로129길', 37.514269, 127.034078);
+insert into parking_area values(pa_seq.nextval, '강원', '평창', '강원도 평창구 대치4동 선릉로64길 34', 37.498327, 127.045008);
+insert into parking_area values(pa_seq.nextval, '강원', '가평', '강원도 가평구 대치4동 921-5', 37.499477, 127.042006);
+
+insert into parking_area values(pa_seq.nextval, '서울', '강북', '서울특별시 강북구 논현3동 학동로34길', 37.513265, 127.023751);
+insert into parking_area values(pa_seq.nextval, '서울', '강북', '서울특별시 강북구 논현4동 언주로129길', 37.514269, 127.014078);
+
+insert into parking_area_personal values('서울특별시 강남구 대치4동 선릉로64길 32', '가-121-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 선릉로64길 32', '가-122-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 선릉로64길 32', '가-123-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 선릉로64길 32', '가-124-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 선릉로64길 32', '가-125-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 선릉로64길 32', '가-126-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 선릉로64길 32', '가-127-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 선릉로64길 32', '가-128-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 선릉로64길 32', '가-129-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 선릉로64길 32', '가-130-다');
+
+insert into parking_area_personal values('서울특별시 강남구 대치4동 921-6', '가-131-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 921-6', '가-132-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 921-6', '가-133-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 921-6', '가-134-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 921-6', '가-135-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 921-6', '가-136-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 921-6', '가-137-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 921-6', '가-138-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 921-6', '가-139-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 921-6', '가-140-다');
+
+insert into parking_area_personal values('서울특별시 강남구 대치4동 1011-84', '가-141-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 1011-84', '가-142-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 1011-84', '가-143-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 1011-84', '가-144-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 1011-84', '가-145-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 1011-84', '가-146-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 1011-84', '가-147-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 1011-84', '가-148-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 1011-84', '가-149-다');
+insert into parking_area_personal values('서울특별시 강남구 대치4동 1011-84', '가-150-다');
